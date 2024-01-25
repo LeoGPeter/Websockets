@@ -1,0 +1,28 @@
+<h1>Lista de Productos en tiempo real</h1>
+<div class="realtimeproducts">
+  <div class="form">
+    <form action="/api/products" method="post" id="form-post">
+      <input type="text" name="code" class="myinput" placeholder="Code" />
+      <input type="text" name="title" class="myinput" placeholder="Nombre" />
+      <input type="text" name="description" class="myinput" placeholder="Descripcion" />
+      <input type="number" name="price" class="myinput" placeholder="Precio" />
+      <input type="number" name="stock" class="myinput" placeholder="Stock" />
+      <button id="addProduct" type="submit">Agregar</button>
+    </form>
+  </div>
+  <div class="table-input">
+    <h3>Productos:</h3>
+    <ul id="productList">
+      {{#each products}}
+      <li>
+        <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <p>Precio: {{this.price}}</p>
+        <p>stock: {{this.stock}}</p>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <a href="/">Ver productos</a>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/realtimeproducts.js"></script>
